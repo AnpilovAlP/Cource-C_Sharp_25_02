@@ -10,6 +10,6 @@ int b = -a;
 
 while (b <= a)
 {
-    Console.Write(b+" ");
+    Console.WriteLine(b+" ");
     b++;
 }
