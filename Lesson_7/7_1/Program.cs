@@ -1,5 +1,7 @@
-﻿//  2. Задайте двумерный массив. Найдите элементы,
-//    у которых обе позиции чётные, и замените эти элементы на их квадраты.
+﻿// 1. Задайте двумерный массив размера m на n,
+//    каждый элемент в массиве находится по формуле: Aₘₙ = m+n.
+//    Выведите полученный массив на экран.
+
 
 void Print(int[,] arr)
 {
@@ -12,7 +14,6 @@ void Print(int[,] arr)
             Console.Write($" {arr[i, j]} ");
         Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
 int[,] MassNums(int row, int column, int from, int to)
@@ -21,20 +22,9 @@ int[,] MassNums(int row, int column, int from, int to)
 
     for (int i = 0; i < row; i++)
         for (int j = 0; j < column; j++)
-            arr[i, j] = new Random().Next(from, to);
+            arr[i, j] = i + j;
 
     return arr;
-}
-
-void Example (int [,] array)
-{
-  for (int i = 1; i < array.GetLength(0); i = i + 2)
-  {
-    for (int j = 1; j < array.GetLength(1); j += 2)
-    {
-      array[i, j] = array[i,j] * array[i,j];
-    }
-  }
 }
 
 int num_row = int.Parse(Console.ReadLine()!);
@@ -43,6 +33,4 @@ int start = int.Parse(Console.ReadLine()!);
 int stop = int.Parse(Console.ReadLine()!);
 
 int[,] mass = MassNums(num_row, num_column, start, stop);
-Print(mass);
-Example(mass);
 Print(mass);

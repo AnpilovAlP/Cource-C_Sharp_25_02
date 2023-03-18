@@ -1,6 +1,5 @@
-﻿//  2. Задайте двумерный массив. Найдите элементы,
-//    у которых обе позиции чётные, и замените эти элементы на их квадраты.
-
+﻿// 4. Задайте двумерный массив. Введите элемент, и найдите первое его вхождение,
+//    выведите позиции по горизонтали и вертикали, или напишите, что такого элемента нет.
 void Print(int[,] arr)
 {
     int row = arr.GetLength(0);
@@ -26,15 +25,17 @@ int[,] MassNums(int row, int column, int from, int to)
     return arr;
 }
 
-void Example (int [,] array)
+string Example (int [,] array, int num)
 {
-  for (int i = 1; i < array.GetLength(0); i = i + 2)
+  for (int i = 0; i < array.GetLength(0); i++)
   {
-    for (int j = 1; j < array.GetLength(1); j += 2)
+    for (int j = 0; j < array.GetLength(1); j ++)
     {
-      array[i, j] = array[i,j] * array[i,j];
+      if (array [i,j] == num) 
+      return $"{i+1} {j+1}";
     }
   }
+  return "Нет";
 }
 
 int num_row = int.Parse(Console.ReadLine()!);
@@ -44,5 +45,6 @@ int stop = int.Parse(Console.ReadLine()!);
 
 int[,] mass = MassNums(num_row, num_column, start, stop);
 Print(mass);
-Example(mass);
-Print(mass);
+int num = int.Parse(Console.ReadLine()!);
+string summ = Example(mass, num);
+Console.WriteLine(summ);
